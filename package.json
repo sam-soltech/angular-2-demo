@@ -1,15 +1,10 @@
 {
-  "name": "angular2-soltech-demo",
+  "name": "angular-2-basics-demo",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Basic Angular-2 Demo",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "postinstall": "typings install",
-    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings",
-    "webdriver:update": "webdriver-manager update"
+    "typings": "typings"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +20,7 @@
     "@angular/router": "3.0.0-alpha.7",
     "@angular/upgrade": "2.0.0-rc.3",
     "browser-sync": "^2.13.0",
+    "connect-history-api-fallback": "^1.2.0",
     "core-js": "^2.4.0",
     "gulp": "^3.9.1",
     "gulp-typescript": "^2.13.6",
