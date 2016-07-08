@@ -7,6 +7,12 @@ To start the demo first run NPM install, after that it is done it should install
 npm install
 ```
 
+After install has finished to start the project run 
+
+```sh
+gulp
+```
+
 ### Angular Resources
 
 | Resource    | Function                                                                        | Link                                                      |
@@ -23,3 +29,6 @@ npm install
 | Gulp        | Node.js based streaming build system                                            | https://github.com/gulpjs/gulp/blob/master/docs/README.md |
 | gulp-typescript| A typescript compiler for gulp with incremental compilation support  | https://github.com/ivogabe/gulp-typescript                        |
 | browsersync | Keep multiple browsers & devices in sync when building websites                 | https://browsersync.io/docs                               |
+
+
+The angular-2 Library is completely modular it is recommended each part be loaded as needed 
