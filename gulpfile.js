@@ -6,7 +6,7 @@ var startpaths = {
   electron: './main.js',
   js: './app/**/*.ts',
   scss: './frontend/scss/**/*.scss',
-  templates: './frontend/views/**/*.jade'
+  html: './app/**/*.html'
 }
 
 var endpaths = {
@@ -44,5 +44,5 @@ gulp.task('reload', function() {
 
 
 gulp.task('default',['ts','serve'], function () {
-   gulp.watch([startpaths.scss,startpaths.templates,startpaths.js],['ts','reload']);
+   gulp.watch([startpaths.scss,startpaths.html,startpaths.js],['ts','reload']);
 });

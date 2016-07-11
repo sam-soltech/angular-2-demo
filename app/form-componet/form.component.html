@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit($event)">
+  <div class="form-line">
+    <label>text item 1</label>
+    <input type="text" placeholder="text item 1" required="required" name="text-item-one" [(ngModel)]="item.one"/>
+  </div>
+  <div class="form-line">
+    <label>text item 2</label>
+    <input type="text" placeholder="text item 1" name="text-item-two" [(ngModel)]="item.two"/>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<div>
+  <span>Two Way Bound To One:</span>
+    {{item.one}}
+</div>
+<div>
+  <span>Bound To Two:</span>
+    {{item.two}}
+</div>

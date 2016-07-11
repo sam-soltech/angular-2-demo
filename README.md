@@ -21,6 +21,8 @@ gulp
 | SystemJS    | Universal dynamic module loader - loads ES6 modules                             | https://github.com/systemjs/systemjs                      |
 | Typescript  | TypeScript is a typed superset of JavaScript that compiles to plain JavaScript  | https://www.typescriptlang.org/docs/tutorial.html         |
 | typings     | The TypeScript Definition Manager                                               | https://github.com/typings/typings                        |
+| rxjs        | library for asynchronous/event-based programs using observables                | http://reactivex.io/rxjs/manual/overview.html             |
+
 
 ### Build Resources
 

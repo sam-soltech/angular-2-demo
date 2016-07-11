@@ -1,0 +1,14 @@
+<h4>Data Route</h4>
+<div class="label">
+  Parent Data Object
+</div>
+<code>
+  {{ parentDemoItem | json}}
+</code>
+<div>
+  <label>Parent One:</label>
+  <input type="text" placeholder="text item 1" name="text-item-two" [(ngModel)]="parentDemoItem.one"/>
+  <label>Parent Two:</label>
+  <input type="text" placeholder="text item 1" name="text-item-two" [(ngModel)]="parentDemoItem.two"/>
+</div>
+<child-data-one [parent-one]="parentDemoItem" (onchange)="changeData($event)"></child-data-one>
