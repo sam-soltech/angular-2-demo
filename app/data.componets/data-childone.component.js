@@ -9,16 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+//you bring the class in for type script but you dont add it to providers array as that would create a new instance
 var sample_service_1 = require('../service/sample.service');
 var models_1 = require('../models');
 var ChildOneDataCompoent = (function () {
     function ChildOneDataCompoent(sampleService) {
         var _this = this;
         this.sampleService = sampleService;
+        //outputs allow binding of events to the compoent dom node allwoing easy acess to parent componets ctlr functions
         this.onchange = new core_1.EventEmitter();
         this.onKey = function (event) {
+            //the emit method fires the bound change event
             _this.onchange.emit(event.target.value);
-            _this.sampleService.broadcast(event.target.value);
+            //see the '../service/sample.service' for observable events
+            _this.sampleService.broadcast('form-change', event.target.value);
         };
     }
     ChildOneDataCompoent.prototype.ngOnInit = function () {
@@ -35,7 +39,6 @@ var ChildOneDataCompoent = (function () {
     ChildOneDataCompoent = __decorate([
         core_1.Component({
             selector: 'child-data-one',
-            providers: [sample_service_1.SampleService],
             template: "\n    <h5>Child One</h5>\n    <div>\n    <label>Child One:</label>\n    <input type=\"text\" placeholder=\"child\" name=\"text-item-two\" [(ngModel)]=\"item.one\"/>\n    <label>Child Two:</label>\n    <input type=\"text\" placeholder=\"child\" name=\"text-item-two\" (keyup)=\"onKey($event)\" [(ngModel)]=\"localItem.two\"/>\n    </div>"
         }), 
         __metadata('design:paramtypes', [sample_service_1.SampleService])

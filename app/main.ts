@@ -11,8 +11,16 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import {AppComponent} from './app.component';
 
 
+//a event dispatch service need it to be shared arcoss the app as it need to be only instanceated once
+import { EventsService } from './service/events.service'
+
+//a basic service ned it to be shared arcoss the app
+import { SampleService } from './service/sample.service'
+
 //The Function That Asgins the core component, array is for gloabl requiremnts and ceratin more complex modules
 bootstrap(AppComponent,[
   APP_ROUTER_PROVIDERS,
-  HTTP_PROVIDERS
+  HTTP_PROVIDERS,
+  EventsService,
+  SampleService
 ]);

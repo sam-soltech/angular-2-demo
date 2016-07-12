@@ -11,32 +11,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var data_childone_component_1 = require('./data-childone.component');
 var sample_service_1 = require('../service/sample.service');
+var events_service_1 = require('../service/events.service');
 var models_1 = require('../models');
 var ParentDataCompoent = (function () {
-    function ParentDataCompoent(sampleService) {
+    function ParentDataCompoent(sampleService, eventsService) {
         var _this = this;
         this.sampleService = sampleService;
-        this.parentEvent = function () {
-        };
+        this.eventsService = eventsService;
         this.changeData = function (data) {
             _this.parentDemoItem.three = data;
             _this.parentDemoItem.four = data;
         };
+        this.sampleService.on('form-change', function (data) { console.info(data); });
     }
     ParentDataCompoent.prototype.ngOnInit = function () {
         this.parentDemoItem = new models_1.DemoItem;
-        this.sampleService.event$.subscribe(function (item) { console.info(item); });
     };
     ParentDataCompoent = __decorate([
         core_1.Component({
             selector: 'my-app',
             //Child Components Are Directives and must be explictly incldeed
             directives: [data_childone_component_1.ChildOneDataCompoent],
-            //Services Are Now providers and must be explictly incldeed
-            providers: [sample_service_1.SampleService],
             templateUrl: 'app/data.componets/data-parent.component.html'
         }), 
-        __metadata('design:paramtypes', [sample_service_1.SampleService])
+        __metadata('design:paramtypes', [sample_service_1.SampleService, events_service_1.EventsService])
     ], ParentDataCompoent);
     return ParentDataCompoent;
 }());

@@ -8,11 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+//taken from jim.taylor.1974 - link:http://stackoverflow.com/a/36273278
 var core_1 = require('@angular/core');
+//this is to import all or the classes for the Observables
 var Rx = require('rxjs/Rx');
 // @Injectable() makes this a provider and must be included, it should be noted that providers are instated once and are shared across the application
-var SampleService = (function () {
-    function SampleService() {
+var EventsService = (function () {
+    function EventsService() {
         var _this = this;
         this.on = function (name, listener) {
             if (!_this.listeners[name]) {
@@ -36,11 +38,11 @@ var SampleService = (function () {
             }
         });
     }
-    SampleService = __decorate([
+    EventsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], SampleService);
-    return SampleService;
+    ], EventsService);
+    return EventsService;
 }());
-exports.SampleService = SampleService;
-//# sourceMappingURL=sample.service.js.map
+exports.EventsService = EventsService;
+//# sourceMappingURL=events.service.js.map

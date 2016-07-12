@@ -1,9 +1,10 @@
+//taken from jim.taylor.1974 - link:http://stackoverflow.com/a/36273278
 import { Injectable} from '@angular/core';
+//this is to import all or the classes for the Observables
 import * as Rx from 'rxjs/Rx';
-import { DemoItem } from '../models'
 // @Injectable() makes this a provider and must be included, it should be noted that providers are instated once and are shared across the application
 @Injectable()
-export class SampleService {
+export class EventsService {
   public eventsSubject: Rx.Subject<any>;
   public listeners:any;
   public events: Rx.Observable<any>;
