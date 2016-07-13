@@ -15,6 +15,7 @@ var events_service_1 = require('../service/events.service');
 var models_1 = require('../models');
 var ParentDataCompoent = (function () {
     function ParentDataCompoent(sampleService, eventsService) {
+        //see eventsServices for this
         var _this = this;
         this.sampleService = sampleService;
         this.eventsService = eventsService;
@@ -22,10 +23,20 @@ var ParentDataCompoent = (function () {
             _this.parentDemoItem.three = data;
             _this.parentDemoItem.four = data;
         };
-        this.sampleService.on('form-change', function (data) { console.info(data); });
+        this.eventsService.on('form-change', function (data) { console.info(data); });
+        //this shows a Static Methods on the Observable class it transforms the data transmited throug
+        var test = this.sampleService.sampleEvent$.map(function (data) { return data += " - comes from subscription"; });
+        //see smaple event for details
+        this.subscription = test.subscribe(function (mission) {
+            console.log(mission);
+        });
     }
     ParentDataCompoent.prototype.ngOnInit = function () {
         this.parentDemoItem = new models_1.DemoItem;
+    };
+    ParentDataCompoent.prototype.ngOnDestroy = function () {
+        // prevent memory leak when component destroyed
+        this.subscription.unsubscribe();
     };
     ParentDataCompoent = __decorate([
         core_1.Component({

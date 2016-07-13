@@ -28,7 +28,7 @@ var EventsService = (function () {
         this.listeners = {};
         this.eventsSubject = new Rx.Subject();
         this.events = Rx.Observable.from(this.eventsSubject);
-        this.events.subscribe(function (_a) {
+        this.memorycheck = this.events.subscribe(function (_a) {
             var name = _a.name, args = _a.args;
             if (_this.listeners[name]) {
                 for (var _i = 0, _b = _this.listeners[name]; _i < _b.length; _i++) {
@@ -38,6 +38,10 @@ var EventsService = (function () {
             }
         });
     }
+    EventsService.prototype.ngOnDestroy = function () {
+        // prevent memory leak when component destroyed
+        this.memorycheck.unsubscribe();
+    };
     EventsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

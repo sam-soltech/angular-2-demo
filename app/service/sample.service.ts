@@ -1,37 +1,33 @@
 import { Injectable} from '@angular/core';
-import * as Rx from 'rxjs/Rx';
+import { Subject }    from 'rxjs/Subject';
 import { DemoItem } from '../models'
 // @Injectable() makes this a provider and must be included, it should be noted that providers are instated once and are shared across the application
 @Injectable()
 export class SampleService {
-  public eventsSubject: Rx.Subject<any>;
-  public listeners:any;
-  public events: Rx.Observable<any>;
+
+  //this obserable setup is from https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#parent-and-children-communicate-via-a-service
+  private eventSubject = new Subject<string>();
+  sampleEvent$ = this.eventSubject.asObservable();
+
+  //seeting priavte varibles in serivvcdes allow for statefull data sharing
+  private sampleData: DemoItem;
+
   constructor() {
-    this.listeners = {};
-    this.eventsSubject = new Rx.Subject();
-
-    this.events = Rx.Observable.from(this.eventsSubject);
-
-    this.events.subscribe(({name, args}) => {
-      if (this.listeners[name]) {
-        for (let listener of this.listeners[name]) {
-          listener(args);
-        }
-      }
-    });
-  }
-
-  on = (name, listener) => {
-    if (!this.listeners[name]) {
-        this.listeners[name] = [];
+    this.sampleData = {
+      one: "Serivce One",
+      two: "Serivce Two",
+      three: "Serivce Three",
+      four:"Serivce Four"
     }
-
-    this.listeners[name].push(listener);
   }
 
-  broadcast = (name,args) => {
-    this.eventsSubject.next({name,args});
+  //will return static data the service
+  getDemo = () => {
+    return this.sampleData;
+  }
+
+  emitEvent = (data: string) => {
+    this.eventSubject.next(data);
   }
 
 

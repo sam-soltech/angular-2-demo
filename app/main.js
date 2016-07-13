@@ -9,7 +9,7 @@ var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 //a event dispatch service need it to be shared arcoss the app as it need to be only instanceated once
 var events_service_1 = require('./service/events.service');
-//a basic service ned it to be shared arcoss the app
+//a basic service need it to be shared arcoss the app
 var sample_service_1 = require('./service/sample.service');
 //The Function That Asgins the core component, array is for gloabl requiremnts and ceratin more complex modules
 platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [

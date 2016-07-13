@@ -1,4 +1,4 @@
-<h4>Data Route</h4>
+<h3>Data Route</h3>
 <div class="label">
   Parent Data Object
 </div>
@@ -11,4 +11,6 @@
   <label>Parent Two:</label>
   <input type="text" placeholder="text item 1" name="text-item-two" [(ngModel)]="parentDemoItem.two"/>
 </div>
-<child-data-one [parent-one]="parentDemoItem" (onchange)="changeData($event)"></child-data-one>
+<!-- the parent-item bracket two way binds the parentDemoItem in the qoutes in to the  child-data-one ctlr  -->
+<child-data-one [parent-item]="parentDemoItem" (onchange)="changeData($event)"></child-data-one>
+<!-- onchange is a custome output event that is fired via the child componet ctlr  -->

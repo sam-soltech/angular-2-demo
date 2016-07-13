@@ -9,32 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Rx = require('rxjs/Rx');
+var Subject_1 = require('rxjs/Subject');
 // @Injectable() makes this a provider and must be included, it should be noted that providers are instated once and are shared across the application
 var SampleService = (function () {
     function SampleService() {
         var _this = this;
-        this.on = function (name, listener) {
-            if (!_this.listeners[name]) {
-                _this.listeners[name] = [];
-            }
-            _this.listeners[name].push(listener);
+        //this obserable setup is from https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#parent-and-children-communicate-via-a-service
+        this.eventSubject = new Subject_1.Subject();
+        this.sampleEvent$ = this.eventSubject.asObservable();
+        //will return static data the service
+        this.getDemo = function () {
+            return _this.sampleData;
         };
-        this.broadcast = function (name, args) {
-            _this.eventsSubject.next({ name: name, args: args });
+        this.emitEvent = function (data) {
+            _this.eventSubject.next(data);
         };
-        this.listeners = {};
-        this.eventsSubject = new Rx.Subject();
-        this.events = Rx.Observable.from(this.eventsSubject);
-        this.events.subscribe(function (_a) {
-            var name = _a.name, args = _a.args;
-            if (_this.listeners[name]) {
-                for (var _i = 0, _b = _this.listeners[name]; _i < _b.length; _i++) {
-                    var listener = _b[_i];
-                    listener(args);
-                }
-            }
-        });
+        this.sampleData = {
+            one: "Serivce One",
+            two: "Serivce Two",
+            three: "Serivce Three",
+            four: "Serivce Four"
+        };
     }
     SampleService = __decorate([
         core_1.Injectable(), 

@@ -5,23 +5,16 @@ historyApiFallback = require('connect-history-api-fallback')
 var startpaths = {
   electron: './main.js',
   js: './app/**/*.ts',
-  scss: './frontend/scss/**/*.scss',
+  css: './frontend/scss/**/*.css',
   html: './app/**/*.html'
 }
-
-var endpaths = {
-  js: './app/',
-  html:'./public/views/',
-  css: './public/css/',
-  assets: './public/assets/'
-}
-
 
 gulp.task('ts', function () {
 
   var tsProject = ts.createProject('./tsconfig.json');
   var tsc = tsProject.src()
     .pipe(ts({
+      //this option overwrite is required to squash typescript compile error
       "experimentalDecorators": true
     }))
 });
@@ -30,8 +23,9 @@ gulp.task('ts', function () {
 gulp.task('serve', function() {
     browserSync.init({
       server: {
-          baseDir: "./",
-          middleware: [ historyApiFallback() ]
+        baseDir: "./",
+        //this is rerquired for broswer sync to work with spa
+        middleware: [ historyApiFallback() ]
       }
     });
 });
