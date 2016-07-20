@@ -34,11 +34,11 @@ var ChildOneDataCompoent = (function () {
     __decorate([
         core_1.Input('parent-item'), 
         __metadata('design:type', models_1.DemoItem)
-    ], ChildOneDataCompoent.prototype, "item", void 0);
+    ], ChildOneDataCompoent.prototype, "item");
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], ChildOneDataCompoent.prototype, "onchange", void 0);
+    ], ChildOneDataCompoent.prototype, "onchange");
     ChildOneDataCompoent = __decorate([
         core_1.Component({
             selector: 'child-data-one',
@@ -49,4 +49,3 @@ var ChildOneDataCompoent = (function () {
     return ChildOneDataCompoent;
 }());
 exports.ChildOneDataCompoent = ChildOneDataCompoent;
-//# sourceMappingURL=data-childone.component.js.map

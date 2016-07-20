@@ -38,4 +38,3 @@ var SampleService = (function () {
     return SampleService;
 }());
 exports.SampleService = SampleService;
-//# sourceMappingURL=sample.service.js.map

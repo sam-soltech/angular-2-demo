@@ -50,4 +50,3 @@ var ParentDataCompoent = (function () {
     return ParentDataCompoent;
 }());
 exports.ParentDataCompoent = ParentDataCompoent;
-//# sourceMappingURL=data-parent.component.js.map

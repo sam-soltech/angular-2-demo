@@ -18,4 +18,3 @@ platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [
     events_service_1.EventsService,
     sample_service_1.SampleService
 ]);
-//# sourceMappingURL=main.js.map

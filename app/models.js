@@ -10,4 +10,3 @@ var DemoItem = (function () {
     return DemoItem;
 }());
 exports.DemoItem = DemoItem;
-//# sourceMappingURL=models.js.map

@@ -2,11 +2,17 @@ var gulp  = require('gulp');
 var ts    = require('gulp-typescript');
 var browserSync = require('browser-sync').create();
 historyApiFallback = require('connect-history-api-fallback')
+
 var startpaths = {
-  electron: './main.js',
   js: './app/**/*.ts',
-  css: './frontend/scss/**/*.css',
+  css: './app/**/*.css',
   html: './app/**/*.html'
+}
+
+var endpaths = {
+  js: './app',
+  css: './',
+  html: './'
 }
 
 gulp.task('ts', function () {
@@ -14,9 +20,9 @@ gulp.task('ts', function () {
   var tsProject = ts.createProject('./tsconfig.json');
   var tsc = tsProject.src()
     .pipe(ts({
-      //this option overwrite is required to squash typescript compile error
-      "experimentalDecorators": true
-    }))
+      "experimentalDecorators": true,
+      'emitDecoratorMetadata': true
+    })).pipe(gulp.dest(endpaths.js))
 });
 
 
@@ -38,5 +44,5 @@ gulp.task('reload', function() {
 
 
 gulp.task('default',['ts','serve'], function () {
-   gulp.watch([startpaths.scss,startpaths.html,startpaths.js],['ts','reload']);
+   gulp.watch([startpaths.css,startpaths.html,startpaths.js],['ts','reload']);
 });
