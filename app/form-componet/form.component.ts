@@ -7,7 +7,7 @@ import { DemoItem } from '../models'
 @Component({
     //selector is the tag used to instiante the component
     selector: 'form-example',
-    templateUrl: 'app/form-componet/form.component.html'
+    templateUrl: './public/form.component.html'
 })
 
 //The class must expressly implment the on OnInit to intilaize any data on invokcation of the component

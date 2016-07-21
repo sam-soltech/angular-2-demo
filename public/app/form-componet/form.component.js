@@ -27,7 +27,7 @@ var FormComponent = (function () {
         core_1.Component({
             //selector is the tag used to instiante the component
             selector: 'form-example',
-            templateUrl: 'app/form-componet/form.component.html'
+            templateUrl: './public/form.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], FormComponent);

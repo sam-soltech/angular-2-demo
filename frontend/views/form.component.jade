@@ -1,0 +1,14 @@
+form((ngsubmit)='onSubmit($event)')
+  .form-line
+    label text item 1
+    input(type='text', placeholder='text item 1', required='required', name='text-item-one', [(ngModel)]='item.one')
+  .form-line
+    label text item 2
+    input(type='text', placeholder='text item 1', name='text-item-two', [(ngModel)]='item.two')
+  button(type='submit') Submit
+div
+  span Two Way Bound To One:
+  |     {{item.one}}
+div
+  span Bound To Two:
+  |     {{item.two}}

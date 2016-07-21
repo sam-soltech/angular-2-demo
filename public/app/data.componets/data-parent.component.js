@@ -13,8 +13,8 @@ var data_childone_component_1 = require('./data-childone.component');
 var sample_service_1 = require('../service/sample.service');
 var events_service_1 = require('../service/events.service');
 var models_1 = require('../models');
-var ParentDataCompoent = (function () {
-    function ParentDataCompoent(sampleService, eventsService) {
+var ParentDataComponent = (function () {
+    function ParentDataComponent(sampleService, eventsService) {
         //see eventsServices for this
         var _this = this;
         this.sampleService = sampleService;
@@ -31,22 +31,22 @@ var ParentDataCompoent = (function () {
             console.log(mission);
         });
     }
-    ParentDataCompoent.prototype.ngOnInit = function () {
+    ParentDataComponent.prototype.ngOnInit = function () {
         this.parentDemoItem = new models_1.DemoItem;
     };
-    ParentDataCompoent.prototype.ngOnDestroy = function () {
+    ParentDataComponent.prototype.ngOnDestroy = function () {
         // prevent memory leak when component destroyed
         this.subscription.unsubscribe();
     };
-    ParentDataCompoent = __decorate([
+    ParentDataComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             //Child Components Are Directives and must be explictly incldeed
             directives: [data_childone_component_1.ChildOneDataCompoent],
-            templateUrl: 'app/data.componets/data-parent.component.html'
+            templateUrl: './public/data-parent.component.html'
         }), 
         __metadata('design:paramtypes', [sample_service_1.SampleService, events_service_1.EventsService])
-    ], ParentDataCompoent);
-    return ParentDataCompoent;
+    ], ParentDataComponent);
+    return ParentDataComponent;
 }());
-exports.ParentDataCompoent = ParentDataCompoent;
+exports.ParentDataComponent = ParentDataComponent;

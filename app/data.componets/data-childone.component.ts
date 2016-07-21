@@ -9,7 +9,7 @@ import { DemoItem } from '../models'
 
 @Component({
     selector: 'child-data-one',
-    templateUrl: 'app/data.componets/data-childone.component.html'
+    templateUrl: './public/data-childone.component.html'
 })
 
 export class ChildOneDataCompoent  implements OnInit{

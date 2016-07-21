@@ -2,17 +2,18 @@ import {Component,OnInit,OnDestroy} from '@angular/core';
 import { ChildOneDataCompoent } from './data-childone.component'
 import { SampleService } from '../service/sample.service'
 import { EventsService } from '../service/events.service'
-import { DemoItem } from '../models'
+import { DemoItem } from '../models';
+// import { DemoItem } from 'model';
 import { Subscription }   from 'rxjs/Subscription';
 @Component({
     selector: 'my-app',
     //Child Components Are Directives and must be explictly incldeed
     directives: [ChildOneDataCompoent],
-    templateUrl: 'app/data.componets/data-parent.component.html'
+    templateUrl: './public/data-parent.component.html'
 })
 
 //The Init and destory allow native actions on the componets lifecycle
-export class ParentDataCompoent implements OnInit, OnDestroy{
+export class ParentDataComponent implements OnInit, OnDestroy{
   parentDemoItem:DemoItem;
   subscription: Subscription;
   constructor (

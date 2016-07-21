@@ -1,0 +1,12 @@
+h3 Data Route
+.label
+  | Parent Data Object
+code
+  | {{ parentDemoItem | json}}
+div
+  label Parent One:
+  input(type='text', placeholder='text item 1', name='text-item-two', [(ngModel)]='parentDemoItem.one')
+  label Parent Two:
+  input(type='text', placeholder='text item 1', name='text-item-two', [(ngModel)]='parentDemoItem.two')
+// the parent-item bracket two way binds the parentDemoItem in the qoutes in to the  child-data-one ctlr
+child-data-one([parent-item]='parentDemoItem', (onchange)='changeData($event)')

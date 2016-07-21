@@ -11,7 +11,7 @@ exports.routes = [
     },
     //the path is bot the name used in code and in the url,be sure to be url safe, routers can only load components
     { path: 'form', component: form_component_1.FormComponent },
-    { path: 'data', component: data_parent_component_1.ParentDataCompoent },
+    { path: 'data', component: data_parent_component_1.ParentDataComponent },
 ];
 exports.APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(exports.routes)

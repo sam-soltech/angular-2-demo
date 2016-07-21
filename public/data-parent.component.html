@@ -1,0 +1,11 @@
+
+<h3>Data Route</h3>
+<div class="label">Parent Data Object</div><code>{{ parentDemoItem | json}}</code>
+<div>
+  <label>Parent One:</label>
+  <input type="text" placeholder="text item 1" name="text-item-two" [(ngModel)]="parentDemoItem.one"/>
+  <label>Parent Two:</label>
+  <input type="text" placeholder="text item 1" name="text-item-two" [(ngModel)]="parentDemoItem.two"/>
+</div>
+<!-- the parent-item bracket two way binds the parentDemoItem in the qoutes in to the  child-data-one ctlr-->
+<child-data-one [parent-item]="parentDemoItem" (onchange)="changeData($event)"></child-data-one>

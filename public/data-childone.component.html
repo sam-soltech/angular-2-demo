@@ -1,0 +1,8 @@
+
+<h4>Child</h4><code>{{ localItem | json}}</code>
+<div>
+  <label>Child Three:</label>
+  <input type="text" placeholder="child" name="text-item-two" [(ngModel)]="item.three"/>
+  <label>Child Four:</label>
+  <input type="text" placeholder="child" name="text-item-two" (keyup)="onKey($event)" [(ngModel)]="localItem.four"/><em>* This is updates parent item three via event</em>
+</div>

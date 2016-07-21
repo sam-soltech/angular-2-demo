@@ -42,7 +42,7 @@ var ChildOneDataCompoent = (function () {
     ChildOneDataCompoent = __decorate([
         core_1.Component({
             selector: 'child-data-one',
-            templateUrl: 'app/data.componets/data-childone.component.html'
+            templateUrl: './public/data-childone.component.html'
         }), 
         __metadata('design:paramtypes', [sample_service_1.SampleService, events_service_1.EventsService])
     ], ChildOneDataCompoent);
